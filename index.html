@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Own Your Dataset</title>
+
+    <!-- Mobile friendly, no zoom -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <!-- p5.js -->
+    <script src="/libs/p5.min.js"></script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+
+  <body>
+    <button id="infoBtn">INFO</button>
+
+    <div id="grid" class="view active">
+      <div id="gridView"></div>
+    </div>
+
+    <div id="feed" class="view">
+      <div id="feedView"></div>
+    </div>
+
+    <div id="alt" class="view">
+      <div id="altView"></div>
+    </div>
+
+    <nav>
+      <button data-view="grid" class="active">Grid</button>
+      <button data-view="feed">Feed</button>
+      <button data-view="alt">Alt</button>
+    </nav>
+  </body>
+</html>

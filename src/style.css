@@ -1,0 +1,230 @@
+/* -----------------------------------
+   FONT
+----------------------------------- */
+@font-face {
+  font-family: "Sohne";
+  src: url("/fonts/Sohne-Leicht.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* -----------------------------------
+   GLOBAL BASE
+----------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%; /* 🔥 Fix structure */
+  min-height: 100dvh; /* 🔥 mobile safe */
+  overflow: hidden;
+  line-height: 1;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  color: #fff;
+  font-family: "Sohne", sans-serif;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
+
+/* -----------------------------------
+   NAVIGATION (bottom bar)
+----------------------------------- */
+nav {
+  display: flex;
+  width: 100%;
+  gap: 0.375rem;
+  padding: 0.375rem;
+  background: #000;
+  flex-shrink: 0; /* 🔥 ne pas se compresser */
+}
+
+button {
+  font-family: inherit;
+}
+
+nav button {
+  flex: 1;
+  padding: 0.75rem 0.5rem;
+  background: #000;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+nav button.active {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+/* -----------------------------------
+   APP WRAPPER
+----------------------------------- */
+#app {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* 🔥 Essentiel pour flex + overflow */
+}
+
+/* -----------------------------------
+   VIEWS CONTAINER
+----------------------------------- */
+.view {
+  flex: 1;
+  min-height: 0; /* 🔥 Permet overflow interne */
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: none;
+}
+
+.view.active {
+  display: block; /* devient visible */
+}
+
+/* -----------------------------------
+   GRID VIEW
+----------------------------------- */
+#gridView {
+  column-count: 4;
+  column-gap: 0.375rem;
+  padding: 0.375rem;
+}
+
+@media (max-width: 75rem) {
+  #gridView {
+    column-count: 3;
+  }
+}
+@media (max-width: 50rem) {
+  #gridView {
+    column-count: 2;
+  }
+}
+
+/* caché par défaut */
+.thumb-info,
+.feed-info {
+  display: none;
+}
+
+/* affiché quand info active */
+body.info_active .thumb-info,
+body.info_active .feed-info {
+  display: block;
+}
+
+.feed-info {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.thumb {
+  position: relative;
+  margin-bottom: 0.375rem;
+}
+
+.thumb-info {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+  font-size: 1.5rem;
+  display: none;
+  pointer-events: none;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+}
+
+#gridView canvas,
+#feedView canvas {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* -----------------------------------
+   FEED VIEW
+----------------------------------- */
+#feedView {
+  padding: 0.375rem;
+  width: 100%;
+}
+
+#feedView .grid-item {
+  margin-bottom: 0.375rem;
+  width: 100%;
+}
+
+/* -----------------------------------
+   ALT VIEW (p5 canvas full-area)
+----------------------------------- */
+
+#altView {
+  width: 100%;
+  height: 100%; /* 🔥 fonctionne correctement après fix structure */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* p5 inside */
+  position: relative;
+}
+
+/* -----------------------------------
+   INFO BUTTON
+----------------------------------- */
+
+#infoBtn {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 9999;
+
+  background: black;
+  color: white;
+
+  border: none;
+  padding: 0.75em 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#infoBtn.active {
+  background: white;
+  color: black;
+}
+
+/* -----------------------------------
+   SCROLLBAR
+----------------------------------- */
+::-webkit-scrollbar {
+  width: 0.5625rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 1.25rem;
+  border: transparent;
+}

@@ -1,0 +1,140 @@
+[
+  {
+    "title": "Beach with large sea stack and sun",
+    "filename": "1.jpg",
+    "description": "Sandy beach with a large sea stack on the left, groups of people along the shoreline, and a bright sun partially obscured by clouds in the upper-right sky.",
+    "dominant_color_hex": "#d9d2c6",
+    "horizon_y": 540,
+    "objects": [
+      {
+        "label": "sun",
+        "bounding_box": { "x": 960, "y": 60, "width": 420, "height": 340 }
+      }
+    ]
+  },
+  {
+    "title": "Winding mountain road at sunset",
+    "filename": "10.jpg",
+    "description": "A winding road with a metal guardrail in the foreground, trees to the left, and layered mountains in the distance under a pale sky. The sun is visible through the tree branches in the top-left.",
+    "dominant_color_hex": "#bcd8e0",
+    "horizon_y": 360,
+    "objects": [
+      {
+        "label": "sun",
+        "bounding_box": { "x": 50, "y": 10, "width": 300, "height": 240 }
+      }
+    ]
+  },
+  {
+    "title": "Dam and sunlit mountain",
+    "filename": "11.jpg",
+    "description": "Large curved concrete dam occupying the right side of the image with rocky mountains and vegetation in the foreground. Bright sun with lens flare visible near the upper left, clear blue sky above.",
+    "dominant_color_hex": "#4A7CCF",
+    "horizon_y": 160,
+    "objects": [
+      {
+        "label": "sun",
+        "bounding_box": { "x": 360, "y": 0, "width": 420, "height": 240 }
+      }
+    ]
+  },
+  {
+    "title": "Sunlit mountain road",
+    "filename": "2.jpg",
+    "description": "A bright sun setting behind a mountain ridge illuminating a winding road with concrete guard blocks and trees casting long shadows.",
+    "dominant_color_hex": "#2E86D6",
+    "horizon_y": 360,
+    "objects": [
+      {
+        "label": "sun",
+        "bounding_box": { "x": 250, "y": 150, "width": 400, "height": 300 }
+      }
+    ]
+  },
+  {
+    "title": "Lighthouse at Sunset",
+    "filename": "3.jpg",
+    "description": "A tall lighthouse silhouetted against a bright setting sun over the ocean, with a walkway and railings leading to it in the foreground.",
+    "dominant_color_hex": "#6c7d86",
+    "horizon_y": 420,
+    "objects": [
+      {
+        "label": "sun",
+        "bounding_box": { "x": 1080, "y": 40, "width": 360, "height": 260 }
+      }
+    ]
+  },
+  {
+    "title": "Horses at sunset",
+    "filename": "4.jpg",
+    "description": "Silhouetted horses on a grassy hillside with the sun low in a clear blue sky, distant hills and trees visible.",
+    "dominant_color_hex": "#78A7D7",
+    "horizon_y": 670,
+    "objects": [
+      {
+        "label": "sun",
+        "bounding_box": { "x": 680, "y": 520, "width": 120, "height": 120 }
+      }
+    ]
+  },
+  {
+    "title": "Snowy mountain with sun",
+    "filename": "5.jpg",
+    "description": "Winter mountain scene with a bright sun high in a clear blue sky above snowy trees and a snow-covered trail.",
+    "dominant_color_hex": "#7FBFFF",
+    "horizon_y": 380,
+    "objects": [
+      {
+        "label": "sun",
+        "bounding_box": { "x": 760, "y": 100, "width": 160, "height": 160 }
+      }
+    ]
+  },
+  {
+    "title": "Sun and textured clouds",
+    "filename": "6.jpg",
+    "description": "Bright sun partially obscured by dense altocumulus/stratocumulus clouds filling the sky above silhouetted mountains and rooftops at the bottom of the frame.",
+    "dominant_color_hex": "#cbdfe9",
+    "horizon_y": 960,
+    "objects": [
+      {
+        "label": "sun",
+        "bounding_box": { "x": 480, "y": 140, "width": 380, "height": 380 }
+      }
+    ]
+  },
+  {
+    "title": "Sunset over pasture",
+    "filename": "7.jpg",
+    "description": "Low sun partially obscured by clouds casting rays and lens flare over a grassy pasture with grazing cows and a small building near a treeline.",
+    "dominant_color_hex": "#7fb6e8",
+    "horizon_y": 520,
+    "objects": [
+      {
+        "label": "sun",
+        "bounding_box": { "x": 280, "y": 300, "width": 260, "height": 220 }
+      }
+    ]
+  },
+  {
+    "title": "Misty layered mountains at dawn",
+    "filename": "8.jpg",
+    "description": "Panoramic view of layered mountain ridges shrouded in blue mist with a soft, cloudy sky above. The scene shows multiple receding peaks and forested slopes with gentle light from the horizon area.",
+    "dominant_color_hex": "#b9d7df",
+    "horizon_y": 360,
+    "objects": []
+  },
+  {
+    "title": "Sun over winding road and valley",
+    "filename": "9.jpg",
+    "description": "A winding road in the foreground curving right, trees and hills in the midground, and the sun low in the sky above distant mountains casting long shadows.",
+    "dominant_color_hex": "#5FA5E8",
+    "horizon_y": 480,
+    "objects": [
+      {
+        "label": "sun",
+        "bounding_box": { "x": 940, "y": 200, "width": 160, "height": 160 }
+      }
+    ]
+  }
+]
