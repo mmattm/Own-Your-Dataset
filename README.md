@@ -10,14 +10,15 @@ Installer la version LTS.
 ### 2. Ouvrir le terminal
 
 Se placer dans le dossier du projet :
-cd chemin/vers/projet
+`cd chemin/vers/projet`
 
 Installer les dépendances :
-npm install
+`npm install`
 
 ### 3. Lancer le serveur Vite
 
-npm run dev
+`npm run dev`
+
 Accès local :
 http://localhost:5173/
 
