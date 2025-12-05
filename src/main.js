@@ -113,7 +113,7 @@ function initApp(photos) {
       const container = document.getElementById("gridView");
 
       images.forEach(async (src, i) => {
-        if (i > 11) return;
+        //if (i > 11) return;
 
         const wrap = document.createElement("div");
         wrap.className = "thumb";
