@@ -40,7 +40,7 @@ for img in "$INPUT_DIR"/*; do
   magick "$img" \
     -gravity center \
     -crop "${NEW_W}x${NEW_H}+0+0" +repage \
-    -resize 1440x1440\> \
+    -resize 720x720\> \
     -quality 85 \
     "$output"
 

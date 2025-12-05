@@ -148,8 +148,20 @@ for img in "$INPUT_DIR"/*; do
     exit 1
   fi
 
-  # Validate JSON
-  parsed_json="$(echo "$raw_json" | jq -c '.')"
+  # Add width/height/orientation to the parsed JSON
+  parsed_json="$(echo "$raw_json" | jq -c \
+    --arg w "$IMG_W" \
+    --arg h "$IMG_H" \
+    '
+    .width = ($w|tonumber)
+    | .height = ($h|tonumber)
+    | .orientation = (
+        if ($w|tonumber) > ($h|tonumber) then "landscape"
+        elif ($h|tonumber) > ($w|tonumber) then "portrait"
+        else "square"
+        end
+      )
+    ')"
 
   # Append to array
   if [[ "$first_entry" == true ]]; then
