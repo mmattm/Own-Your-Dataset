@@ -16,11 +16,11 @@ export class Grid {
     ];
 
     p.preload = () => {
-      img = p.loadImage(this.imageSrc);
+      //img = p.loadImage(this.imageSrc);
     };
 
     p.setup = () => {
-      const c = p.createCanvas(img.width, img.height);
+      const c = p.createCanvas(this.meta.width, this.meta.height);
 
       this.isPressed = false;
       c.mousePressed(() => {
@@ -34,7 +34,7 @@ export class Grid {
       fromColor = p.color(g[0]);
       toColor = p.color(g[1]);
 
-      //p.noLoop();
+      p.noLoop();
     };
 
     p.draw = () => {
@@ -74,7 +74,7 @@ export class Grid {
       }
 
       if (this.isPressed) {
-        p.image(img, 0, 0);
+        //p.image(img, 0, 0);
       }
 
       // debug horizon ligne rouge

@@ -19,6 +19,9 @@ async function loadDataset() {
 
 loadDataset().then((photos) => initApp(photos));
 
+// ------------------------------------------------
+// TOGGLE INFO (affiche les EXIF)
+// ------------------------------------------------
 export let SHOW_INFO = false;
 
 export function toggleInfo() {
@@ -26,10 +29,23 @@ export function toggleInfo() {
 
   document.body.classList.toggle("info_active", SHOW_INFO);
 
-  const btn = document.getElementById("infoBtn");
+  const btn = document.getElementById("info");
   btn.classList.toggle("active", SHOW_INFO);
 }
 
+// ------------------------------------------------
+// TOGGLE BACKGROUND IMAGE (montrer / cacher thumb-bg)
+// ------------------------------------------------
+export let SHOW_BG = false;
+
+export function toggleBackground() {
+  SHOW_BG = !SHOW_BG;
+
+  document.body.classList.toggle("bg_active", SHOW_BG);
+
+  const btn = document.getElementById("show");
+  btn.classList.toggle("active", SHOW_BG);
+}
 // ------------------------------------------------
 // charge EXIF + génère HTML
 // ------------------------------------------------
@@ -73,7 +89,8 @@ async function getExifHTML(src, meta) {
 // ------------------------------------------------
 function initApp(photos) {
   const images = photos.map((p) => `/Dataset/Output/${p.filename}`);
-  document.getElementById("infoBtn").addEventListener("click", toggleInfo);
+  document.getElementById("info").addEventListener("click", toggleInfo);
+  document.getElementById("show").addEventListener("click", toggleBackground);
 
   const views = document.querySelectorAll(".view");
 
@@ -96,17 +113,25 @@ function initApp(photos) {
       const container = document.getElementById("gridView");
 
       images.forEach(async (src, i) => {
+        if (i > 11) return;
+
         const wrap = document.createElement("div");
         wrap.className = "thumb";
 
         const info = document.createElement("div");
         info.className = "thumb-info";
-
         info.innerHTML = await getExifHTML(src, photos[i]);
-
         wrap.appendChild(info);
+
+        const bg = document.createElement("div");
+        bg.className = "thumb-bg";
+        bg.style.backgroundImage = `url('${src}')`;
+        wrap.appendChild(bg);
+
+        // 3) Append wrapper
         container.appendChild(wrap);
 
+        // 4) Création du canvas p5
         new Grid(wrap, src, photos[i], i);
       });
 
@@ -123,21 +148,30 @@ function initApp(photos) {
         const wrap = document.createElement("div");
         wrap.className = "grid-item";
 
-        // 1) Canvas Feed
+        const media = document.createElement("div");
+        media.className = "feed-media";
+        wrap.appendChild(media);
+
+        // BACKGROUND
+        const bg = document.createElement("div");
+        bg.className = "feed-bg";
+        bg.style.backgroundImage = `url('${src}')`;
+        media.appendChild(bg);
+
+        // CANVAS WRAPPER
         const canvasWrapper = document.createElement("div");
         canvasWrapper.className = "feed-canvas";
-        wrap.appendChild(canvasWrapper);
+        media.appendChild(canvasWrapper);
 
-        // 2) Infos sous le canvas
+        // INFOS
         const info = document.createElement("div");
         info.className = "feed-info";
         info.innerHTML = await getExifHTML(src, photos[i]);
-
         wrap.appendChild(info);
 
         container.appendChild(wrap);
 
-        // Création du sketch
+        // Création du sketch Feed
         new Feed(canvasWrapper, src, photos[i], i);
       });
 

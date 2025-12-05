@@ -5,10 +5,17 @@
 
     <title>Own Your Dataset</title>
 
+    <!-- Empêche zoom / pinch / gestures iOS -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
+
+    <!-- iOS Fullscreen Web App -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Own Your Dataset" />
+    <link rel="apple-touch-icon" href="/icon.png" />
 
     <meta name="theme-color" content="#000000" />
 
@@ -18,7 +25,10 @@
   </head>
 
   <body>
-    <button id="infoBtn">INFO</button>
+    <div class="optionBar">
+      <button id="info" class="optionBtn">Info</button>
+      <button id="show" class="showBtn">Show</button>
+    </div>
 
     <div id="grid" class="view active">
       <div id="gridView"></div>

@@ -1,4 +1,5 @@
 import { SHOW_INFO } from "./main.js";
+import { SHOW_BG } from "./main.js";
 
 export class Alt {
   constructor(container, photos) {
@@ -11,11 +12,14 @@ export class Alt {
     const c = this.container;
     const imgs = [];
     let alphas = []; // <- opacité par photo
+    let imageColors = [];
 
-    p.preload = () =>
-      this.photos.forEach((ph) =>
-        imgs.push(p.loadImage(`/Dataset/Output/${ph.filename}`))
-      );
+    p.preload = () => {
+      this.photos.forEach((ph) => {
+        imgs.push(p.loadImage(`/Dataset/Output/${ph.filename}`));
+        imageColors.push(ph.dominant_color_hex);
+      });
+    };
 
     p.setup = () => {
       // retina support
@@ -77,20 +81,27 @@ export class Alt {
 
         if (alphas[i] > 1) {
           p.push();
-          p.tint(255, alphas[i]);
 
           // crop → canvas
-          p.image(
-            img,
-            destX,
-            destY,
-            destW,
-            destH,
-            sun.x,
-            sun.y,
-            sun.width,
-            sun.height
-          );
+          if (SHOW_BG) {
+            p.tint(255, alphas[i]);
+            p.image(
+              img,
+              destX,
+              destY,
+              destW,
+              destH,
+              sun.x,
+              sun.y,
+              sun.width,
+              sun.height
+            );
+          } else {
+            p.noStroke();
+            const col = p.color(imageColors[i]);
+            p.fill(col.levels[0], col.levels[1], col.levels[2], alphas[i]);
+            p.rect(destX, destY, destW, destH);
+          }
 
           p.pop();
 

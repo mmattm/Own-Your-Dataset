@@ -12,11 +12,11 @@ export class Feed {
     let gradients = [["#fff", "#000"]];
 
     p.preload = () => {
-      img = p.loadImage(this.imageSrc);
+      //img = p.loadImage(this.imageSrc);
     };
 
     p.setup = () => {
-      const c = p.createCanvas(img.width, img.height);
+      const c = p.createCanvas(this.meta.width, this.meta.height);
 
       this.isPressed = false;
       c.mousePressed(() => {
@@ -68,7 +68,7 @@ export class Feed {
       }
 
       if (this.isPressed) {
-        p.image(img, 0, 0);
+        //p.image(img, 0, 0);
       }
 
       // debug horizon ligne rouge
